@@ -1,0 +1,128 @@
+:is(h1, h2, h3, h4, h5, h6, p, a) {
+	color: hsl(214.6, 75%, 20%);
+}
+
+.mainContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.subContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 20px;
+
+	width: 400px;
+	height: 100%;
+	background-color: hsl(212.7, 100%, 97.8%);
+	padding: 20px;
+}
+
+.subContainer .headr {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+}
+
+.subContainer .topHeading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	font-size: 1.4rem;
+}
+
+.subContainer .topHeading .icons {
+	width: 30px;
+	height: 30px;
+	color: hsl(214.6, 75%, 20%);
+}
+
+.subContainer .clsicn {
+	cursor: pointer;
+}
+
+.subContainer .clsicn .icon {
+	width: 33px;
+	height: 33px;
+}
+
+.subContainer img {
+	border-radius: 8px;
+	align-self: center;
+	width: 100%;
+}
+
+.subContainer .fileName {
+	font-size: 1.2rem;
+	font-weight: 600;
+
+	margin-left: 5px;
+}
+
+.subContainer .disp {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 7px;
+
+	margin-left: 5px;
+}
+
+.subContainer .disp .head {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+:is(.btns, .btns2) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+
+	width: 100%;
+}
+
+:is(.btns, .btns2) button {
+	height: 50px;
+	width: 50px;
+	background-color: #ffffff;
+	outline: 0;
+	border: 2px solid #353535;
+	border-radius: 5px;
+	transition: 0.1s all linear;
+}
+
+:is(.btns, .btns2) button:hover {
+	color: #ffffff;
+	background-color: hsl(214.6, 75%, 20%);
+}
+
+:is(.btns, .btns2) button .icons {
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+	color: hsl(214.6, 75%, 20%);
+}
+
+:is(.btns, .btns2) button:hover .icons {
+	color: #ffffff;
+	background-color: hsl(214.6, 75%, 20%);
+}
+
+.noFile {
+	width: 100%;
+	margin: 90px 0 60px 0;
+	background: rgba(0, 0, 0, 0.1);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(0px);
+	-webkit-backdrop-filter: blur(0px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}

@@ -1,0 +1,34 @@
+@use "../../Utility/Styles/Variable" as *;
+@use "../../Utility/Styles/Helper/" as *;
+
+.main {
+	@include flexCol(flex-start, flex-start);
+	gap: 7px;
+
+	width: 100%;
+	height: fit-content;
+	padding: 35px 15px 35px 35px;
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		width: 18px;
+		height: 18px;
+		color: var(--clr_blue);
+		transition: none;
+	}
+
+	& button {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+}

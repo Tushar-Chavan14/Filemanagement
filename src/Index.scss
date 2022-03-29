@@ -1,0 +1,37 @@
+@use "./Utility/Styles/Variable" as *;
+@use "./Utility/Styles/Helper" as *;
+
+/* Apply to All Components */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Body */
+:is(body, input, button) {
+	font-family: var(--font_primary);
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Default Elements Customization */
+/* Selection */
+::selection {
+	color: var(--clr_white);
+	background-color: var(--clr_blackFade);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: var(--scrollbar_dimention);
+	height: var(--scrollbar_dimention);
+}
+
+::-webkit-scrollbar-thumb {
+	border: 3.5px solid var(--clr_white);
+	border-radius: 100px;
+	background: var(--clr_blue);
+}

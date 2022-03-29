@@ -1,0 +1,83 @@
+@use "../../Utility/Styles/Variable" as *;
+@use "../../Utility/Styles/Helper" as *;
+
+.card {
+  @include flex(center, space-between);
+  gap: 30px;
+
+  width: 100%;
+  height: fit-content;
+  border-radius: 3px;
+  padding: 10px 10px 10px 20px;
+  border: 3.5px solid var(--clr_blueLight);
+  cursor: pointer;
+
+  &:is(:hover, :focus) {
+    background-color: var(--clr_blueLight);
+  }
+
+  // Start - Common Styles
+  & * {
+    transition: all 0.1s linear;
+  }
+
+  & .icon {
+    transition: none;
+  }
+
+  & :is(h1, h2, h3, h4, h5, h6, p, a) {
+    color: var(--clr_blueDark);
+  }
+  // End - Common Styles
+
+  & .fileName {
+    font-size: 1.2rem;
+    font-weight: var(--fw_medium);
+  }
+}
+
+.btnContainer {
+  @include flex(center, center);
+  gap: 10px;
+
+  & button {
+    height: 45px;
+    border-radius: 3px;
+  }
+
+  & .edit {
+    color: var(--clr_greenDark);
+    font-size: 1rem;
+    font-weight: var(--fw_medium);
+
+    padding: 0 25px;
+    background-color: var(--clr_greenLight);
+    border: 2.5px solid var(--clr_green);
+
+    &:hover {
+      color: var(--clr_white);
+      background-color: var(--clr_green);
+    }
+  }
+
+  & .delete {
+    width: 45px;
+    background-color: var(--clr_redLight);
+
+    & .icon {
+      color: var(--clr_red);
+
+      width: 17px;
+      height: 17px;
+      margin-top: 5px;
+    }
+
+    &:hover {
+      background-color: var(--clr_red);
+
+      & .icon {
+        color: var(--clr_white);
+      }
+    }
+  }
+}

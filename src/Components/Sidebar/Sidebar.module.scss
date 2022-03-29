@@ -1,0 +1,149 @@
+@use "../../Utility/Styles/Variable" as *;
+@use "../../Utility/Styles/Helper" as *;
+
+.overview {
+	@include flexCol(flex-start, flex-start);
+	gap: 40px;
+
+	width: 300px;
+	height: fit-content;
+	transition: all 0.3s ease-in-out;
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		width: 18px;
+		height: 18px;
+		color: var(--clr_blue);
+		transition: none;
+	}
+
+	& button {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Expand/Compact View
+	& .view {
+		position: absolute;
+		inset: 20px auto auto 447px;
+
+		@include flex(center, center);
+
+		width: 45px;
+		height: 45px;
+		border-radius: 100%;
+		background-color: var(--clr_blue);
+		transition: all 0.3s ease-in-out;
+
+		& .icon {
+			color: var(--clr_white);
+
+			width: 16px;
+			height: 16px;
+			margin: 0 3px 2px 0;
+			stroke-width: 2px;
+		}
+
+		&:is(:hover, :focus) {
+			background-color: var(--clr_green);
+		}
+	}
+
+	& .head .details {
+		font-size: 1.75rem;
+		font-weight: var(--fw_semiBold);
+	}
+
+	// Quick Links & Schedule
+	& .quickLinks {
+		@include flexCol(flex-start, flex-start);
+		gap: 12px;
+
+		width: 100%;
+		height: fit-content;
+		transition: all 0.3s ease-in-out;
+
+		// Quick Links & Schedule Items
+		& :is(.link, .active) {
+			@include flex(center, flex-start);
+			gap: 15px;
+
+			width: 100%;
+			height: 55px;
+			padding: 0 30px;
+			border-radius: 5px;
+			background-color: var(--clr_white);
+			box-shadow: 4px 4px 10px var(--clr_blueShadowLight);
+			transition: all 0.3s ease-in-out;
+
+			&:is(:hover, :focus) {
+				background-color: var(--clr_blue);
+			}
+
+			& .title {
+				font-size: 0.95rem;
+				font-weight: var(--fw_medium);
+			}
+
+			&:is(:hover, :focus) :is(.icon, .title) {
+				color: var(--clr_white);
+			}
+		}
+
+		& .active {
+			background-color: var(--clr_blue);
+
+			& :is(.icon, .title) {
+				color: var(--clr_white);
+			}
+		}
+
+		& .filePicker {
+			display: none;
+		}
+	}
+}
+
+// Compact Behaviour
+.overview.compact {
+	width: 60px;
+
+	& .view {
+		inset: 20px auto auto 208px;
+
+		& .icon {
+			margin: 0 0 2px 3px;
+			transform: rotate(180deg);
+		}
+	}
+
+	& .head {
+		display: none;
+	}
+
+	& .quickLinks {
+		align-items: center;
+		margin-top: 50px;
+
+		& :is(.link, .active) {
+			justify-content: center;
+
+			width: 55px;
+			padding: 0;
+
+			& .title {
+				display: none;
+			}
+		}
+	}
+}

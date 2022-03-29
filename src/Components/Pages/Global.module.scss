@@ -1,0 +1,69 @@
+@use "../../Utility/Styles/Variable" as *;
+@use "../../Utility/Styles/Helper" as *;
+
+// Home Page Styles
+.parentContainer {
+	@include flex(flex-start, flex-start);
+
+	width: 100vw;
+	height: 100vh;
+	scroll-behavior: smooth;
+
+	// For Full Screen (Login, Register)
+	& .fullScreen {
+		width: 100%;
+		height: 100%;
+	}
+
+	// Navigation
+	& .level_1 {
+		flex-basis: 120px;
+		flex-shrink: 0;
+
+		height: 100%;
+		padding: 25px;
+		background-color: var(--clr_white);
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	// Quick Access
+	& .level_2 {
+		flex-shrink: 0;
+		@include flexCol(flex-start, flex-start);
+		gap: 50px;
+
+		width: fit-content;
+		height: 100%;
+		padding: 25px;
+		background-color: var(--clr_blueBG);
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	// Main Content
+	& .level_3 {
+		@include flex(flex-start, flex-start);
+
+		width: 100%;
+		height: 100%;
+		background-color: var(--clr_white);
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			width: 20px;
+			height: 20px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: 7px solid var(--clr_white);
+			border-radius: 100px;
+			background: var(--clr_blue);
+		}
+	}
+}

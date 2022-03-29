@@ -1,0 +1,292 @@
+@use "../../Utility/Styles/Variable" as *;
+@use "../../Utility/Styles/Helper" as *;
+
+// Login Page Content
+.login {
+	@include flex(center, center);
+
+	width: 100%;
+	height: 100%;
+	background-image: url(../../../public/image/login/BG.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		transition: none;
+	}
+
+	& :is(button, input) {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Main Content
+	& .content {
+		@include flex(center, space-between);
+		gap: 30px;
+
+		width: 100%;
+		height: 100%;
+		padding: 175px;
+
+		// Text Message
+		& .message {
+			@include flexCol(flex-start, center);
+			gap: 20px;
+
+			& .title {
+				font-size: 4rem;
+				font-weight: var(--fw_bold);
+				line-height: 5rem;
+				color: var(--clr_blackFade);
+			}
+
+			& .details {
+				font-size: 1.4rem;
+				font-weight: var(--fw_medium);
+				line-height: 2.3rem;
+				color: var(--clr_blackFade);
+
+				& .btnSwitch {
+					font-size: 1rem;
+					color: var(--clr_white);
+
+					padding: 5px 15px;
+					border-radius: 5px;
+					background-color: var(--clr_blue);
+
+					&:is(:hover, :focus) {
+						background-color: var(--clr_green);
+					}
+				}
+			}
+		}
+
+		// Login & Registration Form
+		& :is(.loginForm, form) {
+			@include flexCol(center, center);
+			gap: 20px;
+
+			width: 330px;
+
+			// Input Field
+			& .inputField {
+				@include flexCol(center, center);
+				gap: 8px;
+
+				width: 100%;
+				height: 100%;
+
+				& .input {
+					font-size: 1.1rem;
+					font-weight: var(--fw_medium);
+					color: var(--clr_blueDark);
+
+					width: 100%;
+					height: 60px;
+					border-radius: 10px;
+					padding: 0 20px;
+					background-color: var(--clr_blueLight);
+
+					&::placeholder {
+						font-size: 1rem;
+						color: var(--clr_blue);
+					}
+				}
+
+				& .passwordContainer {
+					position: relative;
+
+					width: 100%;
+					height: 100%;
+
+					& .input {
+						padding: 0 75px 0 20px;
+					}
+
+					& .toggleView {
+						position: absolute;
+						inset: 0 7.5px 0 auto;
+
+						@include flex(center, center);
+
+						padding: 0 30px 0 0;
+
+						& .icon {
+							color: var(--clr_blue);
+
+							width: 23px;
+							height: 23px;
+						}
+					}
+				}
+
+				& .otpContainer {
+					position: relative;
+
+					width: 100%;
+					height: 100%;
+
+					& .input {
+						padding: 0 110px 0 20px;
+					}
+
+					& .otpBtn {
+						position: absolute;
+						inset: 0 7.5px 0 auto;
+
+						font-size: 0.9rem;
+						color: var(--clr_white);
+
+						height: 45px;
+						width: 85px;
+						margin: auto 0;
+						border-radius: 5px;
+						background-color: var(--clr_green);
+
+						&:is(:hover, :focus) {
+							background-color: var(--clr_red);
+						}
+					}
+				}
+			}
+
+			// Extra Information
+			& .extra {
+				@include flex(center, flex-end);
+				gap: 8px;
+
+				width: 100%;
+				height: 100%;
+
+				& .forget {
+					background-color: transparent;
+
+					& .text {
+						font-size: 1rem;
+						font-weight: var(--fw_medium);
+						color: var(--clr_blue);
+
+						&:is(:hover, :focus) {
+							color: var(--clr_red);
+						}
+					}
+				}
+			}
+
+			// Submit Button
+			& .submit {
+				font-size: 1rem;
+				font-weight: var(--fw_medium);
+				color: var(--clr_white);
+
+				@include flex(center, center);
+
+				width: 100%;
+				height: 60px;
+				margin: 5px 0 0 0;
+				border-radius: 10px;
+				background-color: var(--clr_blue);
+				box-shadow: 0 12px 25px var(--clr_blueShadow);
+
+				&:is(:hover, :focus) {
+					background-color: var(--clr_green);
+					box-shadow: 0 12px 25px var(--clr_greenLight);
+				}
+
+				& .text {
+					font-size: 1rem;
+					font-weight: var(--fw_medium);
+					color: var(--clr_white);
+				}
+			}
+
+			// Divider
+			& .divider {
+				@include flex(center, space-between);
+				gap: 5px;
+
+				width: 100%;
+				height: 100%;
+				margin: 15px 0;
+
+				& .line {
+					width: 100%;
+					height: 3px;
+					background-color: var(--clr_greyLight);
+				}
+
+				& .text {
+					font-size: 1.2rem;
+					font-weight: var(--fw_medium);
+					color: var(--clr_blue);
+					padding: 0 10px;
+				}
+			}
+
+			// Social Login
+			& .social {
+				@include gridCol((repeat(2, 1fr)), center, center);
+				gap: 15px;
+
+				width: 100%;
+				height: 100%;
+
+				& :is(.google, .facebook) {
+					@include flex(center, center);
+
+					width: 100%;
+					height: 50px;
+					border-radius: 5px;
+					background-color: var(--clr_white);
+				}
+
+				& .google {
+					border: 3px solid hsl(1.4, 92.9%, 55.7%);
+
+					& .icon {
+						color: hsl(1.4, 92.9%, 55.7%);
+						width: 20px;
+						height: 20px;
+					}
+
+					&:is(:hover, :focus) {
+						background-color: hsl(1.4, 92.9%, 55.7%);
+						& .icon {
+							color: var(--clr_white);
+						}
+					}
+				}
+
+				& .facebook {
+					border: 3px solid hsl(211.8, 100%, 50%);
+
+					& .icon {
+						color: hsl(211.8, 100%, 50%);
+						width: 22px;
+						height: 22px;
+					}
+
+					&:is(:hover, :focus) {
+						background-color: hsl(211.8, 100%, 50%);
+						& .icon {
+							color: var(--clr_white);
+						}
+					}
+				}
+			}
+		}
+	}
+}
