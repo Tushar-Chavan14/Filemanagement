@@ -14,53 +14,52 @@ import styles from "./Card.module.scss";
 import { BsTrashFill } from "react-icons/bs";
 
 export default function Card(props) {
-  const { setsOurce, setprevState } = useContext(UiContext);
+	const { setsOurce, setprevState } = useContext(UiContext);
 
-  const { name, id } = props;
+	const { name, id } = props;
 
-  const token = localStorage.getItem("token");
+	const token = localStorage.getItem("token");
 
-  const hanleClick = () => {
-    setsOurce(props);
-    setprevState(true);
-  };
+	const hanleClick = () => {
+		setsOurce(props);
+		setprevState(true);
+	};
 
-  function handleDelete(e) {
-    e.preventDefault();
+	function handleDelete(e) {
+		e.preventDefault();
 
-    const delUrl = "http://intervc-api.shivila.tech/api/v1/files/";
+		const delUrl = "http://intervc-api.shivila.tech/api/v1/files/";
 
-    if (window.confirm("are sure you want to delete") === true) {
-      axios
-        .delete(delUrl + id, {
-          headers: {
-            Authorization: "Token " + token,
-          },
-        })
-        .then(() => {
-          toast("sucessfully uploaded");
-          window.setTimeout(function () {
-            window.location.reload();
-          }, 4000);
-        })
-        .catch((err) => {
-          console.log(err.response.status);
-        });
-    }
-  }
+		if (window.confirm("are sure you want to delete") === true) {
+			axios
+				.delete(delUrl + id, {
+					headers: {
+						Authorization: "Token " + token,
+					},
+				})
+				.then(() => {
+					toast("sucessfully uploaded");
+					window.setTimeout(function () {
+						window.location.reload();
+					}, 4000);
+				})
+				.catch((err) => {
+					console.log(err.response.status);
+				});
+		}
+	}
 
-  return (
-    <>
-      <ToastContainer />
-      <div className={styles.card} onClick={hanleClick}>
-        <p className={styles.fileName}>{name}</p>
-        <div className={styles.btnContainer}>
-          <button className={styles.edit}>Rename</button>
-          <button className={styles.delete} onClick={handleDelete}>
-            <BsTrashFill className={styles.icon} />
-          </button>
-        </div>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<ToastContainer />
+			<div className={styles.card}>
+				<div className={styles.fileNameContainer} onClick={hanleClick}>
+					<p className={styles.fileName}>{name}</p>
+				</div>
+				<button className={styles.btnDelete} onClick={handleDelete}>
+					<BsTrashFill className={styles.icon} />
+				</button>
+			</div>
+		</>
+	);
 }

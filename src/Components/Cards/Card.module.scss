@@ -2,82 +2,67 @@
 @use "../../Utility/Styles/Helper" as *;
 
 .card {
-  @include flex(center, space-between);
-  gap: 30px;
+	position: relative;
+	@include flex(center, center);
 
-  width: 100%;
-  height: fit-content;
-  border-radius: 3px;
-  padding: 10px 10px 10px 20px;
-  border: 3.5px solid var(--clr_blueLight);
-  cursor: pointer;
+	width: 100%;
+	height: fit-content;
 
-  &:is(:hover, :focus) {
-    background-color: var(--clr_blueLight);
-  }
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
 
-  // Start - Common Styles
-  & * {
-    transition: all 0.1s linear;
-  }
+	& .icon {
+		transition: none;
+	}
 
-  & .icon {
-    transition: none;
-  }
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
 
-  & :is(h1, h2, h3, h4, h5, h6, p, a) {
-    color: var(--clr_blueDark);
-  }
-  // End - Common Styles
+	& .fileNameContainer {
+		width: 100%;
+		height: fit-content;
+		border-radius: 3px;
+		padding: 13px 10px 13px 20px;
+		border: 3.5px solid var(--clr_blueLight);
+		cursor: pointer;
 
-  & .fileName {
-    font-size: 1.2rem;
-    font-weight: var(--fw_medium);
-  }
+		&:is(:hover, :focus) {
+			background-color: var(--clr_blueLight);
+		}
+
+		& .fileName {
+			font-size: 1.2rem;
+			font-weight: var(--fw_medium);
+		}
+	}
 }
 
-.btnContainer {
-  @include flex(center, center);
-  gap: 10px;
+.btnDelete {
+	position: absolute;
+	inset: auto 10px auto auto;
 
-  & button {
-    height: 45px;
-    border-radius: 3px;
-  }
+	width: 45px;
+	height: 45px;
+	border-radius: 3px;
+	background-color: var(--clr_redLight);
 
-  & .edit {
-    color: var(--clr_greenDark);
-    font-size: 1rem;
-    font-weight: var(--fw_medium);
+	& .icon {
+		color: var(--clr_red);
 
-    padding: 0 25px;
-    background-color: var(--clr_greenLight);
-    border: 2.5px solid var(--clr_green);
+		width: 17px;
+		height: 17px;
+		margin-top: 5px;
+	}
 
-    &:hover {
-      color: var(--clr_white);
-      background-color: var(--clr_green);
-    }
-  }
+	&:hover {
+		background-color: var(--clr_red);
 
-  & .delete {
-    width: 45px;
-    background-color: var(--clr_redLight);
-
-    & .icon {
-      color: var(--clr_red);
-
-      width: 17px;
-      height: 17px;
-      margin-top: 5px;
-    }
-
-    &:hover {
-      background-color: var(--clr_red);
-
-      & .icon {
-        color: var(--clr_white);
-      }
-    }
-  }
+		& .icon {
+			color: var(--clr_white);
+		}
+	}
 }
